@@ -1,0 +1,66 @@
+
+public class Caneta {
+	
+	// Atributos & Visibilidade//
+	public String modelo;
+	public String cor;
+	private float ponta;
+	protected int carga;
+	protected boolean tampada;
+	
+	// Metodo Construtor //
+	public Caneta() {
+		
+	}
+	public Caneta(String co, String m, float p, int f){
+		
+		this.cor = co;
+		this.modelo = m;
+		this.setPonta(p);
+		this.setCarga(f);
+	}
+	
+	// Metodos Modificadores Get e Set//
+	public float getPonta() {
+		return this.ponta;
+	}
+	public void setPonta(float p) {
+		this.ponta = p;
+	}
+	public int getCarga() {
+		return this.carga;
+	}
+	public void setCarga(int ca) {
+		this.carga = ca;
+	}
+	
+	//Metodos //
+	
+	public void escrever() {
+		if (tampada == true) {
+			System.out.println("Não posso escrever !");
+		}else {
+			System.out.println("Estou escrevendo !");
+		}
+	}
+	public void rabiscar() {
+		if (this.tampada == true) {
+			System.out.println("Erro. Não posso rabiscar !");
+		}else {
+			System.out.println("Eu estou rabiscando !");
+		}
+	}
+	 void tampada() {
+		this.tampada = true;
+	}
+	 void  destampada() {
+		this.tampada = false;
+	}
+	public void status() {
+		System.out.println("A canete é: "+this.cor);
+		System.out.println("A caneta tem: "+this.getPonta()+" de ponta.");
+		System.out.println("Ela esta com "+this.carga+"% de carga.");
+		System.out.println("O modelo dela é: "+this.modelo);
+		System.out.println("Ela esta tampada ? "+this.tampada);
+	}
+}

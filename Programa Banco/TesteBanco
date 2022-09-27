@@ -1,0 +1,24 @@
+
+public class texteConta {
+
+	public static void main(String[] args) {
+		ContaBanco c1 = new ContaBanco();
+		
+		c1.setNumConta("1234");
+		c1.setDono("Marcos");
+		c1.abrirConta("CP");
+		c1.depositar(50);
+		c1.pagarMesal();
+		c1.estadoConta();
+		System.out.println("\n");
+		
+		ContaBanco c2 = new ContaBanco();
+		c2.abrirConta("CC");
+		c2.setDono("Mariana");
+		c2.depositar(50);
+		c2.pagarMesal();
+		c2.estadoConta();
+		
+	}
+
+}

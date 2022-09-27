@@ -1,0 +1,110 @@
+// Na classe do controle todos os atributos são Privados //
+public class Controle implements Controlador{
+	// Atributos todos Privados //
+	private int volume;
+	private boolean ligado;
+	private boolean tocando;
+	
+	// Metodos Especiais Construtor gets e sets //
+	
+	public  Controle() {
+		this.volume = 100;
+		this.ligado = false;
+		this.tocando = false;
+	}
+	// Gets e Sets //
+	
+	private int getVolume() {
+		return volume;
+	}
+	private void setVolume(int vo) {
+		this.volume = vo;
+	}
+	private boolean getLigado() {
+		return ligado;
+	}
+	private void setLigado(boolean li) {
+		this.ligado = li;
+	}
+	private boolean getTocando() {
+		return tocando;
+	}
+	private void setTocando(boolean to) {
+		this.tocando = to;
+	}
+	
+	// Todos os Metodos Abstratos da Classe Controlador //
+	
+	public void ligar() {
+		this.setLigado(true);
+	}
+	public void desligar() {
+		this.setLigado(false);
+	}
+	public void abrirmenu() {
+		
+		/*No menu ele apenas exibira se a Tv ou qualquer outro objeto, se ele esta ligado ou não
+		 *Quanto está o volume junto com uns ||| em sequencia mostrando a o tamanho do volume
+		 *E se esta pausado ou não.*/
+		System.out.println("Esta ligado? "+this.getLigado());
+		System.out.print("O volume: "+this.getVolume());
+		for(int i=0;i<this.getVolume();i+=10) {
+			System.out.print(" | ");
+		}
+		System.out.println("\nEsta pausado eu não: "+this.getTocando());
+	}
+	public void fecharmenu() {
+		System.out.println("Fechando Menu");
+	}
+	public void maisVolume() {
+		/*Para aumentar o volume tem que verificar se o objeto esta ligado ou não
+		 *Porque se estiver desligado não tera como aumentar ou volume.*/
+		if(this.getLigado()) {
+			this.setVolume(this.getVolume() + 5);
+		}else {
+		System.out.println("A tv está desligado, não da para aumentar o volume.");
+		}
+	}
+	
+	public void menosVolume() {
+		/*Para diminuir o volume vai a mesma logica, em verificar se esta ligado ou não o objeto
+		 *Porque não tera como também em diminuir o volume se estiver desligada.*/
+		if(this.getLigado()) {
+			this.setVolume(this.getVolume() - 5);
+		}else {
+			System.out.println("A tv está desligada, não da para diminuir o volume.");
+		}
+		
+	}
+	public void ligarmudo() {
+		/*Para ligar o mudo tem que saber se esta ligado, e se o volume esta maior do que 0.*/
+		if((this.getLigado() == true) && (this.getVolume() > 0)){
+				this.setVolume(0);
+		}
+	}
+	public void desligarmudo() {
+		/*Para desligar o Mudo é a mesma logica invertida de ligar o mudo, mas tem que ver se o
+		 *volume esta maior que 0. E por definição assim que desligar o mudo, o objeto volte a
+		 *ficar com o volume no valor de 25.*/
+		if((this.getLigado() == true)&&(this.getVolume() == 0))
+		this.setVolume(25);	
+	}
+	public void play() {
+		/*Para o play, verifica se está ligado, e se esta pausado.*/
+		if ((this.getLigado() == true && this.getTocando() == false)) {
+			this.setTocando(true);
+		}
+		else{
+			System.out.println("Impossivel dar Play a tv esta desligada.");
+		}
+	}
+	public void pause() {
+		/*Para o Pause, virifica se esta ligado, mas se esta tocando.*/
+		if((this.getLigado() ==true)&&(this.getTocando() == true)) {
+			this.setTocando(false);
+		}else {
+			System.out.println("Impossivel Pausar a Tv, ela esta desligada.");
+		}
+	}
+	
+}

@@ -1,0 +1,22 @@
+
+public class TesteCaneta {
+	public static void main(String[] args) {
+		
+		// Instancia Caneta 1 com as suas caracteristicas //
+		Caneta c1 = new Caneta("Azul", "Bic", 0.4f, 100);
+		c1.status();
+		System.out.println("\n");
+		
+		// Instancia Caneta 2 com as suas caracteristicas diferentes da Caneta 1 //
+		Caneta c2 = new Caneta("Vermelha", "Cristal", 0.7f, 50);
+		c2.cor ="Verde";
+		c2.tampada();
+		c2.status();
+		System.out.println("\n");
+		
+		// Instancia Caneta 3 sem passar nenuma caracteristica //
+		Caneta c3 = new Caneta();
+		c3.tampada = true;
+		c3.status();
+	}
+}
